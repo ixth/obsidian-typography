@@ -2,15 +2,15 @@
 	"name": "obsidian-typography",
 	"version": "0.0.1",
 	"description": "Typography plugin for Obsidian",
-	"main": "main.js",
 	"scripts": {
-		"build:prod": "webpack -c webpack.prod.js",
 		"build:dev": "webpack -c webpack.dev.js",
+		"build:prod": "webpack -c webpack.prod.js",
 		"version": "node tools/version-bump.mjs && git add manifest.json versions.json"
 	},
 	"keywords": [
 		"obsidian",
-		"typography"
+		"typography",
+		"textr"
 	],
 	"author": "Mikhail Menshikov <ainop@ya.ru>",
 	"license": "MIT",
@@ -19,6 +19,12 @@
 		"@babel/preset-env": "^7.18.2",
 		"babel-loader": "^8.2.5",
 		"copy-webpack-plugin": "^11.0.0",
+		"textr": "^0.3.0",
+		"typographic-ellipses": "^1.0.11",
+		"typographic-em-dashes": "^1.0.2",
+		"typographic-orphan": "^1.0.1",
+		"typographic-quotes": "^2.0.1",
+		"typographic-single-spaces": "^1.0.2",
 		"webpack": "^5.73.0",
 		"webpack-cli": "^4.10.0"
 	}

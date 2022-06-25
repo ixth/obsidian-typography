@@ -1,31 +1,15 @@
-const obsidian = require('obsidian');
-const {
-    spaces,
-    stickyEmDash,
-    stickyParticles,
-    quotes,
-    ellipsis
-} = require('./rules');
+import { Plugin } from 'obsidian';
 
-const RULES = [
-    spaces,
-    stickyEmDash,
-    stickyParticles,
-    quotes,
-    ellipsis,
-];
+import { getTransformer } from './transformer';
 
-const processText =
-    (text, rules) =>
-        rules.reduce((text, rule) => rule(text), text);
-
-module.exports = class extends obsidian.Plugin {
+export default class extends Plugin {
     onload() {
+        const transform = getTransformer({ locale: 'ru' });
         this.addCommand({
             id: 'typographize',
             name: 'Typographize',
             editorCallback: (editor) => {
-                editor.setValue(processText(editor.getValue(), RULES));
+                editor.setValue(transform(editor.getValue()));
             }
         });
     }
